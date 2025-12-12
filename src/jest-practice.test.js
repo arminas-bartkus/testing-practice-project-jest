@@ -1,6 +1,7 @@
 import { capitalise } from "./jest-practice.js";
 import { reverseString } from "./jest-practice.js";
 import { calculator } from "./jest-practice.js";
+import { caesarCipher } from "./jest-practice.js";
 
 describe("Capitalise Functions", () => {
   it("should have a string input", () => {
@@ -54,5 +55,20 @@ describe("Tests calculator", () => {
   it("should multiply", () => {
     expect(calculator.multiply(2, 5)).toBe(2 * 5);
     expect(calculator.multiply(4.3, 22.3)).toBe(4.3 * 22.3);
+  });
+});
+
+describe("Tests Caesar Cipher", () => {
+  it("should shift a normal key forward", () => {
+    expect(caesarCipher("abc", 3)).toBe("def");
+  });
+  it("should shift back to the start of the alphabet at the end", () => {
+    expect(caesarCipher("xyz", 3)).toBe("abc");
+  });
+  it("should preserve the case", () => {
+    expect(caesarCipher("HeLLo", 3)).toBe("KhOOr");
+  });
+  it("should leave spaces, punctuation, and other non alphabetical characters alone", () => {
+    expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
   });
 });
