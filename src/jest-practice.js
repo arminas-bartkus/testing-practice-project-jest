@@ -104,8 +104,7 @@ function caesarCipher(inputString, key) {
   const splitStringIndexs = [];
   let letterCounter = 0;
 
-
-// finds indexes of characters, if symbols or spaces leaves alone
+  // finds indexes of characters, if symbols or spaces leaves alone
 
   splitString.forEach((letter) => {
     for (let i = 0; i < alphabet.length; i++) {
@@ -120,7 +119,7 @@ function caesarCipher(inputString, key) {
     }
   });
 
-// finds adjusts index with key, if symbols or spaces leaves alone
+  // finds adjusts index with key, if symbols or spaces leaves alone
 
   const splitStringIndexsWithKey = [];
 
@@ -132,7 +131,7 @@ function caesarCipher(inputString, key) {
     }
   }
 
-// checks if got new index is past the end of the alphabet, if so restarts, leaves symbols and spaces alone
+  // checks if got new index is past the end of the alphabet, if so restarts, leaves symbols and spaces alone
 
   let newStringArray = [];
 
@@ -147,7 +146,7 @@ function caesarCipher(inputString, key) {
     }
   }
 
-// checks and maintains case sensitivity
+  // checks and maintains case sensitivity
 
   const splitInputString = inputString.split("");
 
@@ -177,4 +176,20 @@ function caesarCipher(inputString, key) {
     return str.length === 1 && str.match(/[a-z]/i);
   }
 }
-export { capitalise, reverseString, calculator, caesarCipher };
+
+function analyseArray(array) {
+  let arrayTotal = 0;
+
+  array.forEach((value) => {
+    arrayTotal = arrayTotal + value;
+  });
+  const arrayAverage = arrayTotal / array.length;
+  return {
+    average: arrayAverage,
+    min: Math.min(...array),
+    max: Math.max(...array),
+    length: array.length,
+  };
+};
+
+export { capitalise, reverseString, calculator, caesarCipher, analyseArray };

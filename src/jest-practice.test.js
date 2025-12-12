@@ -2,6 +2,7 @@ import { capitalise } from "./jest-practice.js";
 import { reverseString } from "./jest-practice.js";
 import { calculator } from "./jest-practice.js";
 import { caesarCipher } from "./jest-practice.js";
+import { analyseArray } from "./jest-practice.js";
 
 describe("Capitalise Functions", () => {
   it("should have a string input", () => {
@@ -70,5 +71,23 @@ describe("Tests Caesar Cipher", () => {
   });
   it("should leave spaces, punctuation, and other non alphabetical characters alone", () => {
     expect(caesarCipher("Hello, World!", 3)).toBe("Khoor, Zruog!");
+  });
+});
+
+describe("Analyses an array to provide, an average, min, max, and length", () => {
+  // tests to check that there are number inputs / other simple things liek this will be omitted as
+  // covered in other functions
+
+  it("should provide an return an average", () => {
+    expect(analyseArray([1, 8, 3, 4, 2, 6]).average).toBe(4);
+  });
+  it("should provide an return a minimum", () => {
+    expect(analyseArray([1, 8, 3, 4, 2, 6]).min).toBe(1);
+  });
+  it("should provide an return a maximum", () => {
+    expect(analyseArray([1, 8, 3, 4, 2, 6]).max).toBe(8);
+  });
+  it("should provide an return a length of array", () => {
+    expect(analyseArray([1, 8, 3, 4, 2, 6]).length).toBe(6);
   });
 });
